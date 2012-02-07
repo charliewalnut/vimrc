@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/usr/local/google/home/jamesr/chrome/src/third_party/WebKit/Source/WebKit/chromium/ppapi/c/dev'
+let g:netrw_dirhist_2='/usr/local/google/home/jamesr/chrome/src/third_party/WebKit/Source/WebKit/chromium'
+let g:netrw_dirhist_3='/hd2/chrome/src/third_party/WebKit/Source/Platform/chromium'
