@@ -3,6 +3,8 @@ call pathogen#helptags()
 
 set nocompatible
 
+set rtp+=/usr/lib/google-golang/misc/vim
+
 " Indentation settings, WebKit style
 fun! UseWebKitStyle()
   set tabstop=4
@@ -38,8 +40,8 @@ fun! UseChromiumStyle()
 endfun
 command! Crs call UseChromiumStyle()
 
-" default to WebKit style
-call UseWebKitStyle()
+" default to chromium style
+call UseChromiumStyle()
 
 " general / code settings
 syntax on
@@ -83,6 +85,28 @@ autocmd BufEnter ChangeLog set et
 autocmd BufEnter ChangeLog set tw=120
 
 " a.vim for obj-c and obj-c++
-let g:alternateExtensions_mm = "h,cpp"
+let g:alternateExtensions_mm = "h,ccc"
 let g:alternateExtensions_m = "h"
-let g:alternateExtensions_h = "cpp,c,cxx,cc,mm,m"
+let g:alternateExtensions_h = "cc,cpp,c,cxx,mm,m"
+
+" quickopen
+noremap <silent> <C-O> <Esc>:O<CR>
+
+" map Ctrl-<direction> to move between splits
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+
+" vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_confirm_extra_conf = 0
+
+so /hd2/chrome/src/tools/vim/ninja-build.vim
