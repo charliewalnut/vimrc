@@ -40,8 +40,15 @@ fun! UseChromiumStyle()
 endfun
 command! Crs call UseChromiumStyle()
 
-" default to chromium style
-call UseChromiumStyle()
+" *.cc default to chromium style
+autocmd BufWinEnter *.cc call UseChromiumStyle()
+autocmd BufWinEnter *.gyp call UseChromiumStyle()
+autocmd BufWinEnter *.gypi call UseChromiumStyle()
+autocmd BufWinEnter *.gn call UseChromiumStyle()
+autocmd BufWinEnter *.gni call UseChromiumStyle()
+autocmd BufWinEnter *.h call UseChromiumStyle()
+" *.cpp default to chromium style
+autocmd BufWinEnter *.cpp call UseWebKitStyle()
 
 " general / code settings
 syntax on
@@ -81,9 +88,6 @@ if version >= 730
     set undofile
 endif
 
-autocmd BufEnter ChangeLog set et
-autocmd BufEnter ChangeLog set tw=120
-
 " a.vim for obj-c and obj-c++
 let g:alternateExtensions_mm = "h,ccc"
 let g:alternateExtensions_m = "h"
@@ -102,9 +106,16 @@ map <c-l> <c-w>l
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+if !has("gui_running")
+  set background=dark
+endif
+
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'fatih/vim-go'
+
+"source /usr/share/vim/google/google.vim
+"Glug youcompleteme-google
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
