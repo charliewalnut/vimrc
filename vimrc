@@ -66,6 +66,13 @@ set hlsearch
 filetype plugin on
 set backspace+=indent,eol,start
 
+" Dart
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/dart-vim-plugin
+endif
+filetype plugin indent on
+
 " Capslock is mapped to 'Help', so map it to Esc
 map <Help> <Esc>
 map! <Help> <Esc>
